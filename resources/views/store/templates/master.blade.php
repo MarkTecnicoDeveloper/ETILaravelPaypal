@@ -27,7 +27,9 @@
 
         @include('store.templates.components.header')
 
-        @yield('content')
+        <div class="max-w-7xl mx-auto pt-6 px-6">
+            @yield('content')
+        </div>
 
         @stack('headerScripts')
     </body>
