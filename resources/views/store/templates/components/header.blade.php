@@ -15,10 +15,10 @@
             </div>
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#">
+                    <a href="{{ route('home') }}">
                         <img class="block lg:hidden h-8 w-auto" src="{{ url('assets/img/etifavicon.png') }}" alt="EspecializaTi">
                     </a>
-                    <a href="#">
+                    <a href="{{ route('home') }}">
                         <img class="hidden lg:block h-8 w-auto" src="{{ url('assets/img/etilogo.png') }}" alt="EspecializaTi">
                     </a>
                 </div>
@@ -36,7 +36,7 @@
                         </button>
                     </div>
                     <div id="user-menu" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Perfil</a>
+                        <a href="{{ route('user.profile') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Perfil</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Alterar Senha</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 border-t-2" role="menuitem" tabindex="-1" id="user-menu-item-2">Sair</a>
                       </div>
