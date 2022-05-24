@@ -8,3 +8,4 @@ use App\Http\Controllers\UserController;
 Route::get('/', [StoreController::class, 'index'])->name('home');
 Route::get('/carrinho', [CartController::class, 'index'])->name('cart');
 Route::get('/meu-perfil', [UserController::class, 'profile'])->name('user.profile');
+Route::get('/add-cart/{id}',[CartController::class, 'add'])->name('add.cart');
