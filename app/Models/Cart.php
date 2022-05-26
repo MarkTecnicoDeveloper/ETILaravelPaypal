@@ -2,16 +2,38 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Session;
+
 class Cart
 {
     private $items = [];
 
+    public function __construct()
+    {
+        if(Session::has('shopping-cart'))
+        {
+            $cart = Session::get('shopping-cart');
+
+            $this->items = $cart->items;
+        }
+    }
+
     public function add(Product $product)
     {
-        $this->items[$product->id] = [
-            'item'  => $product,
-            'qtd'   => 1,
-        ];
+        
+        if(isset($this->items[$product->id]))
+        {
+            $this->items[$product->id] = [
+                'item'  => $product,
+                'qtd'   => $this->items[$product->id]['qtd'] + 1,
+            ];
+        } else {
+            $this->items[$product->id] = [
+                'item'  => $product,
+                'qtd'   => 1,
+            ];
+        }
+
     }
 
     public function getItems()
