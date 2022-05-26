@@ -12,15 +12,14 @@ class CartController extends Controller
     public function index()
     {
 
-        //$request = request();
         $cart = Session::get('shopping-cart');
-        //$cart = $request->session()->get('cart');
-        //dd($cart);
+
+        dd($cart->getItems());
 
         return view('store.cart.index');
     }
 
-    public function add(Request $request, $id)
+    public function add($id)
     {
 
         $product = Product::find($id);
@@ -34,12 +33,6 @@ class CartController extends Controller
         $cart->add($product);
 
         Session::put('shopping-cart', $cart);
-        Session::save();
-        //$request->session()->put('cart',$cart);
-
-        //$request->session()->put('cart',$cart);
-
-        //dd($request->session()->get('cart'));
 
         return redirect()->route('cart');
 
