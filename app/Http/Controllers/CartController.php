@@ -37,4 +37,21 @@ class CartController extends Controller
         return redirect()->route('cart');
 
     }
+
+    public function decrement($id)
+    {
+        $product = Product::find($id);
+
+        if(!$product)
+        {
+            return redirect()->route('home');
+        }
+
+        $cart = new Cart;
+        $cart->decrement($product);
+
+        Session::put('shopping-cart', $cart);
+
+        return redirect()->route('cart');
+    }
 }
